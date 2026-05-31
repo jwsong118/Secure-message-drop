@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E2EE Message Drop — demo</title>
+        <style>
+                body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }
+                h1 { font-size: 1.4rem; margin-bottom: 4px; }
+                .primitives { color: #555; font-size: 0.9rem; margin-top: 0; }
+                .primitives code { background: #eef; padding: 1px 5px; border-radius: 4px; }
+                textarea{ width: 100%; box-sizing: border-box; font-family: ui-monospace, monospace; padding: 8px; }
+                button { padding: 8px 16px; margin-right: 8px; cursor: pointer; }
+                .label { font-weight: 600; margin-top: 16px; }
+                .note { color: #666; font-size: 0.85rem; }
+        </style>
+    </head>
+    <body>
+        <h1>End-to-end encrypted message</h1>
+        <p class="primitives">
+            Made by <code>X25519</code> key exchange, <code>HKDF-SHA256</code> key derivation, <code>AES-256-GCM</code> encryption.
+        </p>
+        <p class="note">
+            The receiver keypair is generated once on load. A fresh sender keypair is generated for each encryption.
+            Refreshing makes a new keypair, so an old ciphertext won't decrypt after refreshing.
+        </p>
+
+        <div class="label">Message</div>
+        <textarea id="plaintext" rows="3">Type in something here!</textarea>
+        <button id="encryptBtn">Encrypt</button>
+
+        <div class="label">Ciphertext</div>
+        <textarea id="ciphertextOut" rows="3"></textarea>
+
+        <button id="decryptBtn">Decrypt</button>
+        <div class="label">Decrypted</div>
+        <textarea id="plaintextOut" rows="3"></textarea>
+
+        <script src="common.js"></script>
+        <script src="encrypt.js"></script>
+        <script src="decrypt.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
