@@ -1,6 +1,7 @@
 # End-to-End Encrypted Message Demo
 
 A browser demonstration of an end-to-end encryption I wrote while learning cryptography.
+( https://jwsong118.github.io/Secure-message-drop/)
 
 ## What it does
 
@@ -20,10 +21,3 @@ The encryption follows a standard hybrid scheme:
 3. **AES-256-GCM** The message is encrypted with that key using an
    authenticated cipher (12-byte nonce, 128-bit authentication tag), providing
    both confidentiality and integrity.
-
-## Caution
-
-This is a demonstration of the cryptographic core, not a full messaging service.
-Message storage and delivery are out of scope: the receiver keypair
-lives in memory and is regenerated on page reload, so a ciphertext produced
-before a refresh will not decrypt afterward.
